@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+
+<script>
+  // 判断+、－0 不相等的方法
+  // function eq(a, b){
+  //   if (a === b) return a !== 0 || 1 / a === 1 / b;
+  //   return false;
+  // }
+  // console.log(eq(0, 0)) // true
+  // console.log(eq(+0, -0)) // false
+ 
+  // 判断NAN 值相等的方法
+  // function eq(a, b) {
+  //   if (a !== a) return b !== b;
+  // }
+
+  // console.log(eq(NaN, NaN)); // true
+
+  // 判断两个数组相等
+  // 思路：对象不能直接进行比较，所以先将数组转换成字符串，再将其进行排序，但是只能判断数字相同，若数组中包含对象且不相同任然返回true
+//   alert([1,2,3].toString() == [3,2,1].toString());
+// 　alert([1,2,3].sort().toString() === [3,2,1].sort().toString());
+
+  // let a = [1,2,3]
+  // console.log(a instanceof Object)
+
+
+
+</script>

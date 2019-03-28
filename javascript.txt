@@ -1,0 +1,730 @@
+第一、JavaScript/js
+第二、Java--sun
+第三、Python
+
+
+JavaScript
+一、历史发展
+    网景--布兰登--ECMAScripy（欧洲联盟组织）2015
+二、作用
+    1.制作页面中的动画效果；
+    2.数据验证/登录注册；
+    3.小游戏；
+    4.操作cookie
+    5.....                     用户和浏览器之间的一些交互效果
+三、组成部分
+    1.ECMAScript   js的标准--js的基础语法(变量、运算符、流程控制、函数)
+    2.BOM          浏览器对象模型Broser Object Module
+    3.DOM          文档对象模型 Document Object Module
+四、特点
+    基于（对象）和（事件）驱动 的（松散型/弱类型）（解释性）语言
+    var aa=1;
+    var aa="123";
+五、引入
+    通过script标签对引入，路径放在src属性中
+    <script src="index.js"></script>
+    1.外部引入：通过script标签对引入外部js文件
+    2.内部嵌入：将js代码写在script标签对中，script标签对的位置不固定
+        不能放在一个script标签中
+    3.a链接的href中或者重定向的时候写
+    4.事件中<div onclick="alert(4)"></div>
+
+六、调试工具
+    1.弹窗alert（mess）；
+    2.在控制台输出：console.log(aa);
+    3.在页面中输出：document.write(aa);
+    4.在弹窗中输入内容prompt("弹窗输入框")；
+    5.确定或取消弹框confirm();
+    
+七、变量--容器
+    关键字var去申明一个变量
+    1.变量的命名：由数字、字母、下划线、$组成，
+                  数字不能开头
+    2.一定要有意义，见名知意；
+    3.命名时可以用驼峰命名法，首字母大写法；
+    4.变量的赋值
+      4,1声明的时候同时赋值； 
+      4.2先声明后赋值；
+      4.3一次性声明多个变量同时赋值；
+      *******************************************
+      js中每条语句结束需要加英文状态的分号；
+      *******************************************
+    5.命名时避免与js中的关键字/保留字冲突；
+    6.变量赋值时
+      6.1变量赋值时，如果变量没有直接赋值，默认是undefined;
+      6.2如果直接赋值，变量的值就是所赋的值；
+      6.3如果重新赋值，会覆盖；
+      6.4如果没有var关键字声明变量，该变量会成为全局变量
+      6.5如果先使用后声明，该变量为undefined（浏览器优先解析var、function）;
+      6.6如果没有声明就会报错
+	var $num;
+	$num="aa";
+	console.log($num);
+        var getElementsByClassName;
+        var num_box;
+        num_box="内容";
+        var Array;
+        var num1,num2,num3;
+        num1="111";
+        num2="222";
+        num3="333";
+        alert(num3);
+        var box1="aaa", box2="bbb",box3="ccc";
+        console.log(box2);
+八、数据类型
+    1.初始数据类型（栈区中）
+      数值型--typeof--number
+            十进制、八进制（0开头）、十六进制（0x开头）、科学计数法（3.02e3）
+            Number.MIN_VALUE 最小值、Number.MAX_VALUE 最大值、NAN(not a number)
+      字符串型--typeof--string
+            双引号/单引号包裹起来的数据“”‘’可以互相嵌套
+      undefined--typeof--undefined
+            声明过但未赋值的变量默认值
+      null--typeof--object
+            清空对象
+      布尔值--typeof--boolean
+            true/false
+      symble
+            独一无二/ES6
+    2.引用数据类型（堆区中）函数（object） 数组（function） 对象（object）
+      object--typeof--object
+             var obj={name:"张三"，age:"20"}
+             数组
+   typeof变量名--检测变量所属的类型
+九、运算符
+    1.算数运算符+ - * / % ++ --
+        1> 数值型+数值型==>算数+
+        2> 数值型+字符串型/字符串+字符串==>连接+
+        3> - * /  算数减/乘/除,运算结果是一个数值型，如果不能运算，则结果显示NAN；
+        4> %  取余数
+        5> ++/--  自增自减 在前先自增再运算  在后先运算再自增
+    2.关系运算符> = > >= <= === ==
+         *undefine d=null
+    3.逻辑运算符&& || ！
+    4.三元运算符
+    5.特殊运算符（）
+       ...
+    var num3=num1%num2;   %取余
+    ++ 自增 ++在前先自增再运算  ++在后先运算再自增
+    +数值型数据  +表示运算
+    字符串类型+字符串类型/数值型  +表示连接
+    var aa=20,bb=30;
+    var member1="510教室的人数是aa人";
+    var member2="512教室的人数是bb人";
+    var member=aa+bb;
+    console.log("WUIF1807班的总人数是："+member+"人");
+
+
+
+8.15
+一、关系运算符
+    关系运算符得到的结果是真/假值
+    1.关系运算符  < > <= >=
+      1.数值型与数值型：直接比较大小；
+      2>字符串型与字符串型：依次比较ASCII码的大小；
+      3>数值型与字符串型：数值型的字符串会转换成数值再比较，如果不能转换，直接返回false；
+    2.== === != !==
+      1> ==  判断数值是不是相等
+      2> === 判断数值和数据类型是否相等
+      3> 假值： 0 null undefined false "" NaN
+    3.赋值运算符  = += -= *= /= %=
+      1> a+=2  a=a+2;  这是一个表达式有具体的值，可直接输出或者赋值给新的变量
+    4.逻辑运算符
+        判断条件                                &&        ||       !（条件1的取反）
+         true                true              true      true     false
+         false               true              false     true     ture
+         true                false             false     true     false
+         false               false             false     false    true
+
+      1> && 会找第一个假值，如果没有，找第二个真值
+      2> || 会找第一个真值，如果没有，找第二个假值
+    5.三元运算符
+      1> 表达式1？表达式2：表达式3；
+         如果表达式1成立，则执行表达式2，否则不成立时，执行表达式3；
+    6.特殊运算符
+      1> ()  可以提高优先级/调用函数
+      2>  ,  声明多个变量的时候分割作用
+
+二、流程控制：指代码执行顺序
+    1.顺序结构
+    2.分支结构/选择结构
+      1>单路分支
+         if(条件){
+          执行语句1;
+      }
+      2>双路分支
+         if（条件）{
+          执行语句1;
+      }else{
+          执行语句2;
+      }
+      3>多路分支
+          if(条件){
+          执行语句1;
+      }else if(条件){
+          执行语句2;
+      }else if(条件){
+          执行语句3;
+      }else{
+          执行语句4;
+      }
+      嵌套分支
+            输出十行十列
+              for(var j=0;j<10;j++){
+	         for(var i=0;i<10;i++){
+	         document.write("*");
+	         }
+ 	         document.write("<br>");
+              }
+	
+      4>switch分支;离散型数据
+         swich(表达式){
+              case"1":执行语句1；
+              break；
+              case"2":执行语句2；
+              break；
+              case"3":执行语句3；
+              break；
+              ...
+              default：执行语句；
+          }
+       break:终止整个循环
+       continue:终止本次循环
+    3.循环结构---必须有能够跳出循环的语句
+        1>for
+           for(var i=0;i<10;i++){}
+           表达式1：初始条件
+           表达式2：进入循环条件
+           表达式3：步进值
+        2>while（）{}
+            先判断，如果满足条件，再进入循环体
+        3>do{}while()
+            先执行循环体，再判断
+
+
+8.20
+数组：存储一系列相同或者具有相似规则的数据
+    1.数组的创建
+      .var arr=[];
+      .var arr=new Array();
+          只有一个参数就按照数组的长度去算，多余的就是按照数组去算                           
+    2.数组的赋值
+      .声明的同时赋值
+       var arr=[1,2,"",(),"ss",function(){}, ,];
+      .先声明在赋值
+       var arr=[];
+       var arr=[3];
+       var arr=["1"];
+       var arr=[2];
+       var arr={};
+       数组中可以使用任意类型的数据
+    3.数组的访问
+      .通过下标访问，下标可以从0开始
+      .可以越界访问，未定义的值默认是undefined
+    4.数组的属性--长度
+      .arr.length 长度会比下标多1
+      .数组的长度可以自定义
+    5.数组的遍历--找最大值/排序/去空
+      .for循环
+        for(var i=0;i<arr.length;i++){
+             console.log(arr[i]);
+     }
+      .for in
+        for(var i in arr){
+           //i是下标
+           console.log(i);
+           //下标对应的每个值
+           console.log(arr[i]);
+         }
+        .找最大值最小值
+          var arr1=[2,23,34,65,766,87,85,45,233,34];
+          var max=arr1[0];
+          console.log(arr1.length);
+          for(var i=0;i<arr1.length;i++){
+ 		if(arr1[i+1]>max){
+ 			max=arr1[i+1];
+                 }
+  	}
+    	console.log(max);
+        .数组排序：从大到小
+	 var arr = [156,11,98,55,2,54];
+     // 每一个值与后面的值依次比较，每一轮都找出最小值，
+     // 互换变量额位置，需要临时变量
+  var temp;
+   for(var i=0;i < arr.length;i++){
+      for(var j=i+1;j < arr.length;j++){
+         if(arr[j] > arr[i]){
+              temp=arr[i];
+              arr[i]=arr[j];
+              arr[j]=temp;
+           }
+       }
+   }
+   console.log(arr);
+       .数组去空
+         for(var i=0;i<arr.length;i++){
+           if(!(arr[i]==undefined||arr[i]=="")){
+               console.log(arr[i]);
+            }
+       }
+    6.二维数组/三维数组--遍历
+       var arr = [[1, 2, 3], ["a", "b", "c"], [4, 5, 6]];
+       for (var i = 0; i < arr.length; i++) {
+           console.log(arr[i]);
+           for (var j = 0; j < arr[i].length; j++) {
+               console.log(arr[i][j]);
+        }
+    }
+
+
+函数
+   1.函数的作用：封装具有特定功能的代码段
+     
+   2.函数的定义：
+     。通过function关键字定义函数function funName(形参){函数体}；
+     。通过字面量的形式定义：var funName=function(形参){函数体}；
+     。通过对象的方式定义：var funName=new Function();
+           通过字面量发放时定义的函数，只能先定义后调用；
+           通过function关键字定义的函数，可以先调用再定义；
+   3.函数的调用
+     。通过 函数名称（）；
+     。可以在事件后面调用；
+       <div onclick="funName()">请点击我</div>
+     。自调用
+         (function tan(num){
+             alert(num);
+         })(5);
+   4.函数的参数
+     。形参：定义函数时括号里的参数，接收实参，相当于变量名；
+     。实参：调用函数时括号里的参数，相当于变量值；
+           .形参个数=实参个数，一一对应；
+           .形参个数>实参个数，多余的形参默认值undefined；
+           .形参个数<实参个数，可以用arguments对象接收实参，存储实参的详细信息，类似于数组/...res接收剩余参数，是一个数组；
+           .参数类型可以有多种：
+                函数的重载：根据参数个数或者类型不同，执行不同的函数体；
+ 
+  *拓展：慕课网  阮一峰
+
+作业：找二维数组中的最大值/最小值
+
+
+
+8.21
+
+参数的默认值
+  1.if else 条件分支
+	if (flag==undefined){
+		flag="max";
+	}else{
+		falg=flag;
+	}
+  2.三元运算符
+	1>flag == undefined ? flag = "max":flag = flag;
+  	2>flag = flag == undefined ? "max" : flag;
+  3.逻辑或||
+	flag=flag||"max";   //或运算中会找第一个真值
+  4.ES6
+	function campare(flag="max"){};
+  5.函数的返回值
+    。作用：终止整个函数的执行；返回函数的运行结果；
+    。返回值类型可以是多种；
+    。每个函数必须有返回值，如果函数没有返回值，调用函数得到的结果是undefined；
+    。一个函数只能有一个返回值，或者是条件分支中只能执行一条return语句；
+    。return终止函数   break continue终止循环
+
+
+作用域：变量起作用的范围（让代码更加规范。有逻辑、减少命名冲突）
+  。变量作用域
+    .全局变量
+       -任何地方都可以访问到，每次改变的值会被保存下来；
+       -用var关键字声明在函数外部的变量；
+       -没有用var声明，但是赋值的变量；
+    .局部变量
+       -只能在函数内部起作用；
+       -在函数内部声明的变量；
+       -形参；
+       -在块级作用域内声明的变量
+  。函数作用域
+      .局部作用域
+         函数内部/局部变量起作用的范围；
+      .全局作用域
+         任何地方/全局变量起作用的范围；
+      .块级作用域
+         ES6新增加的作用域{}；
+  。作用域链
+      .里层函数可以访问到外层函数的变量，但是外层函数访问不到里层函数的变量；
+  。let const
+      .let
+         -ES6新增的关键字，用来声明变量，用法类似于var；
+         -与var声明变量的不同点：
+              。不可以重复声明；
+              。不存在变量提升；（用var声明的变量可以在声明之前去使用，但是该变量的值为undefined）
+              。可以识别块作用域；
+      .const
+         -ES6新增的关键字，用来声明常量
+         -必须在声明的同时进行赋值
+         -不能重新赋值
+         -可以识别块级作用域
+
+
+8.22
+几种特殊的函数
+  1.回调函数：函数内部自己调用自己
+  2.递归函数
+  3.闭包函数
+  4.内置顶层函数： js内部封装好的一些函数，在任何地方都可以调用，不用管他是如何实现的，只要会用就行。
+    。字符编码
+        alert(escape("优逸客"));
+    。字符解码
+        alert(unescape("%u4F18%u9038%u5BA2"));
+    。转化为数值型数据  
+        数值型--直接转化
+        字符串型   非数值型--NaN
+        数值型--直接转化
+          boolean    true--1
+                     false--0
+          undefined  NaN
+          null       0
+            alert(Number(null));
+
+    。转化为字符串型
+        alert(String("rwerer343"));
+
+    。转化为布尔值
+        alert(Boolean("NaN"));
+
+    。parsInt转化为整数，会去掉前后一些无意义的0；
+         alert(parseInt("254.4324342fgdf"));     //字符串
+    。parseFloat转化为浮点数，保留小数点
+         alert(parseFloat("24233.9900"));
+    。alert(isNaN("Number('43r')"));
+
+    强制数据类型转化：内置顶层函数
+    隐式数据类型转化：算数运算、比较、逻辑...  “12”>7
+  5.ES6：箭头函数
+	形参=>返回值
+	//多个形参放在（）
+    var fn1=(num1,num2)=>num1+num2;
+
+
+
+9.3
+        **真实宽度 offsetWidth   width+padding+border       
+	**真实高度 offsetHeight  height+padding+border
+        **元素距有定位属性父元素垂直方向的距离offsetTop
+	**获取子元素距有定位属性父元素水平方向的距离offSetLeft
+	作为子元素用外边框，作为有定位属性的父元素直到内边框
+
+9.4	scrollTop 获取有滚动条的元素，距顶部的距离
+	scrollLeft 获取具有滚动条的元素距左边的距离
+	   document.body.scrollTop||document.documentElement.scrollTop
+	
+	#浏览器窗口的高度+滚动的距离>楼层距顶部的距离
+
+flow>img  大于号 直接选择器
+
+
+
+9.5
+flex-wape:wape;  //换行
+	document.getElementById("idname");
+                 document.getElementsByClassName("class");  遍历 for循环
+	document.getElementsByTagName("li");  遍历 for
+	指定范围 domObj.getElementsByClassName();
+	document.querySelector();  dom对象
+	document.querySelectorAll();   节点列表 forEach
+
+	操作内容：innerHTML 
+ 		  innerText
+	操作样式：
+	    获取：getComputedStyle(obj,null).sttr  String
+	    设置：
+	         行内样式：obj.style.arrt=value
+		 批量设置：类名classList.add()  remove()  toggle()
+		  	   id: obj.id=idname
+	操作属性：
+	    标准属性：
+		obj.属性名（attr）=value
+	    非标准属性：
+		设置：obj.setAttribute(name,value)
+		获取：obj.getAttribute(name)
+
+节点：整个页面叫做节点树
+    。整个文档叫做文档节点
+    。标签元素叫做元素节点
+    。属性叫做属性节点
+    。注释叫做注释节点
+    。文本、换行、空格叫做文本节点
+属性：     查找元素
+    .操作节点
+    。childNodes 获取所有父元素的子节点
+    。firstChild 获取父元素的第一个子节点
+    。lastChild  获取父元素的最后一个子节点
+    。nextSibling 获取当前元素的下一个节点
+    。previousSibling 获取当前元素的上一个节点
+    。parentNode 找子节点的父节点
+    .操作dom元素
+    。children 获取父元素的所有HTML子元素
+    。firstElementChild 获取父元素的第一个子元素
+    。lastElementChild 获取父元素的最后一个子元素
+    。nextElementSibling 获取当前元素的下一个兄弟元素
+    。previousElementSibling 获取当前元素的上一个兄弟元素   如果没有元素返回null
+
+		nodeType	nodeName	nodeValue
+文档节点	  9		#document	  null
+元素节点	  1		大写标签名	  null
+属性节点	  2		属性名		 属性值
+注释节点	  8		#comment	注释内容
+文本节点	  3		#text		文本内容
+
+方法：     操作元素
+    。创建元素：document.createElement(tagname);
+    。添加：parent.appendChild(创建的元素);
+            parent.insertBefore(要插入的节点，插入位置的节点);
+    。删除：parent.removeChild(要删除节点);
+    。替换：parent.replaceChild(新节点，旧节点);
+    。克隆：obj.cloneNode(false )   默认false:仅克隆本节点  true：克隆子节点
+
+
+9.7
+事件:
+    事件源 事件 事件处理函数 div.onclick=function(){}
+    。鼠标事件 click/dblclick 
+	   mouseenter/mouseleave 
+	   mouseover/mouseout 
+	   mousedown/mouseup 
+	   mousemove
+    。键盘事件 keydown/keyup keypress
+    。window事件 load resize scroll 
+    。表单事件 focus blur
+
+添加事件的方式：
+    。添加到行内
+    。on+type
+    。addEventListener/removeEventListener  同一事件源的同一事件可以添加多个事件处理函数
+	box.addEventListener(type类型,function(){},false)
+	box.addEventListener(type类型,fn,false)
+
+	box.removeEventListener(type类型,function(){},false)
+	box.removeEventListener(type类型,fn,false)
+
+事件对象 e
+    记录事件发生时，元素身上的具体信息。 看做事件处理的一个参数
+    。属性：
+    。鼠标：
+	.clientX/clientY 事件发生时用户点击距浏览器左上角水平垂直的距离
+	.offsetX/offsetY 事件发生时用户点击距事件源左上角水平垂直的距离
+	.pageX/pageY 事件发生时用户点击距文档距左上角水平垂直的距离
+    。键盘：
+	.key 按键
+	.keyCode 按键对应的Unicode码
+	.altKey18 ctrlKey17 shiftKey16  默认false 按下变true
+	.方向键 left37 top38 right39 bottom40
+    。e.target 获取当前对象
+
+事件流
+    。冒泡型事件流：从下到上的   目标元素->最不明确的元素  从DOM子节点到根节点。
+	   on+type
+	   add/removeEventListener(type,fn,false)
+    。捕获型事件流：从上到下      最不明确的元素->目标元素  
+	   add/removeEventListener(type,fn,true)
+事件流的方法：
+    。e.stopPropagation() 阻止冒泡型事件流
+    。e.preventDefault() 阻止浏览器的默认行为
+	<a href="javascript:;"></a>
+
+项目名称
+项目背景
+功能模块
+开发技术
+
+9.10
+事件委派： 利用冒泡型事件流
+    。动态创建的
+    。大量元素
+    。e.target
+
+
+
+9.11
+
+对象：
+    声明方式：
+        。构造函数function
+	     function Phone{
+		this.price=2000;
+		this.call=function(){
+		
+		      }
+		}
+	     let apple=new Phone();
+	     phone.prototype={
+		call:function(){
+
+		      }
+		}
+	     
+	。json 
+	   let obj={price:2000,call:function(){}}
+	。class
+	   class Computer{
+        //构造函数
+        constructor(size,color,price){
+            this.size=size;
+            this.color=color;
+            this.price=price;
+            // this.study=function(){
+            //     console.log("这台电脑可以用来学习");
+            // }
+        }
+
+	增删改查：
+	    .app.color="red";
+	    .delete color
+	    .apple.color="pink"
+	    .apple.color
+	遍历：
+	   for in  遍历对象
+	    for(var i in obj){
+           i ;属性名/方法名
+           obj[i];//属性值
+        console.log(i)
+    }
+	属性：
+	.constructor 指向对象的构造函数
+	._proto_ 指向构造函数的prototype
+	.对象 instanceof 构造函数 对象的构造函数是否是这个函数，是为true，不是为false
+	。prototype 构造函数的属性，存储公共的属性和方法
+     Math对象:
+	。Math.PI
+     String:
+     Array:
+     Date:日期对象
+	let date=new Data();
+	console.log(data.getFullYear());//年
+	console.log(data.getMonth());//月 0-11
+	console.log(data.getDate());//日 1-31
+	console.log(data.getDay());星期 1-6 0表示星期日
+
+	data.getTime();//1970.1.1 0.0.0 毫秒数
+	data.setTime();
+
+	let date1=new Data(2018，9，1); //指定时间 
+	console.log(date1);
+	
+	date.setFullYear(2020); //设置年
+	console.log(date);
+	date.setMonth(2020); //设置月
+	console.log(date);
+
+、、作业
+ 倒计时 可编辑表格 留言板  拖拽  漂浮的小广告  楼层
+
+
+本地存储：
+    三个方法：
+    两种数据转化：
+
+
+版本：
+       3.3.1 压缩版本  非压缩版本
+       -webkit-:谷歌浏览器内核  
+       -moz-：火狐浏览器内核
+       -ms-：IE浏览器内核  
+       -o-：欧朋浏览器内核
+Css3新属性：
+   渐变：
+   2d转换： 
+   过渡：
+   3d：
+   动画：
+   阴影：
+   字体图标：
+   媒体查询：
+   flex布局：
+html5：   
+   本地存储：
+   语义化标签：
+   音视频：
+   画布：canvas
+
+
+补充：
+一、垃圾回收机制：
+    变量的大小不确定，动态分配内存，变量不需要的时候，回收内存。
+
+二、作用域、作用域链
+    块级作用域：{}   if   switch  while  do while  for  var  let(识别块级作用域)
+    作用域链：在为变量赋值时，遵循一定的规则，从内向外进行访问的规则。
+
+三、闭包
+    产生原因：在函数外部要访问内部的变量
+    概念：函数内部的函数，内部操作，外部引用
+    缺点：内部变量的内存不能够回收，内存耗费
+
+
+    两链一包  作用域链 原型链  闭包
+
+四、new运算符做的三件事
+    1.创建一个空对象
+    2.lisi.__proto__===Person.prototype
+    3.将构造函数中的this换成实例化的对象
+
+五、Ajax
+    。异步 js and XML
+    。原理：在浏览器与服务器之间添加一个中间层
+    。特点：异步、无刷新
+
+六、原型、原型链
+    。原型对象（原型）：构造函数.prototype
+    。构造函数有prototype属性
+    。对象有__proto__(实现原型链与继承)，constructor(返回构造函数)属性 
+    。Object Person(){}  p1
+        实例化.__proto__===构造函数.prototype
+        p1.__proto__===Person.prototype
+         p1.__proto__.constructor===person
+          p1.__proto__.proto===Object.prototype
+           p1.__proto__.proto.proto===null
+    。原型链：寻找对象属性与方法是遵循的规律；通过__proto__实现；
+              先找自己，沿着__proto__向上找，找到值，找不到为undefined
+
+
+七、事件流
+    。概念：事件发生时，元素执行的顺序。
+    。分类：
+         .事件冒泡：下->上
+         .事件捕获：上->下
+    。addEventlistener('click',fn,true/false) 第三个参数决定是否为捕获事件，ture：捕获
+    。事件委派、事件代理：
+       .怎么样：给父元素添加事件
+       .原理：冒泡型事件流
+       .什么时候用：大量元素、动态创建
+       .阻止冒泡型事件流：e.stopPropagation()
+       .阻止浏览器默认行为：e.preventDefault()   a标签跳转、submit提交、reset重置
+ 
+
+变量：let var $data
+常量：const
+数据类型：
+      。基本数据类型：number string undefined boolean null
+      。引用数据类型：object
+
+
+一次完整的浏览器请求流程
+       。域名解析 -->
+       。发起TCP的3次握手
+       。建立TCP连接后发起http请求 -->
+       。服务器响应http请求，浏览器得到html代码 -->
+       。浏览器解析html代码，并请求html代码中的资源（如js、css、图片等） -->
+       。浏览器对页面进行渲染呈现给用户
+
+
+    
+
+
+
+
+
+
+
+
