@@ -274,7 +274,15 @@ var vm = new Vue({
   //注意不要写成语句
   ```
 
-  
+
+
+
+#### Webpack的主要优势
+
+* 模块化开发（import，require） 
+* 预处理（Less，Sass，ES6，TypeScript……） 
+* 主流框架脚手架支持（Vue，React，Angular） 
+* 庞大的社区（资源丰富，降低学习成本） 
 
 
 
