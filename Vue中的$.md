@@ -1,11 +1,11 @@
 ### Vue中的$
 
 * $set的使用
-  * 可能遇到的情况：当生成vue实例后，再次给数据复制时，有时候并不会自动更新到视图上
+  * 可能遇到的情况：当生成vue实例后，再次给数据赋值时，有时候并不会自动更新到视图上
   * 如果在实例创建之后添加新的属性到实例上，他不会触发视图更新
   * 调用方法
-    * Vue.set(target,key,value)    /     this.$set(target,key,value)
-      * target: 要更改的数据源（可以是对象或数组）
+    * Vue.set(obj,key,value)    /     this.$set(obj,key,value)
+      * obj: 要更改的数据源（可以是对象或数组）
       * key: 要更改的具体数据
       * value: 重新附的值
 

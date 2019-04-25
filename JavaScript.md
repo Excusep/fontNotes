@@ -62,8 +62,8 @@
     
     // Object.assign(target, source1, source2) 用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target），并返回合并后的target
     var obj = {
-    name: '彭湖湾',
-    job: '学生'
+        name: '彭湖湾',
+        job: '学生'
     }
     var copyObj = Object.assign({}, obj);
     copyObj.name = '我才不叫彭湖湾呢！ 哼  (。・`ω´・)';
@@ -199,7 +199,7 @@ oAjax.send('a=1&b=2');
     // function接收到的参数实际上是 1,2,3
     ```
 
-*  何时用
+* 何时用
 
   * 没有参数或者只有一个参数用call()，要传多个对象用apply()
 
@@ -243,4 +243,8 @@ oAjax.send('a=1&b=2');
   // [[2,4,6,8,10],[1,3,5,7,9]]
   ```
 
-  
+
+##### params传参和data传参
+
+* params是添加至url请求字符串中，用于get请求
+* data是添加至请求体中的， 用于post请求
