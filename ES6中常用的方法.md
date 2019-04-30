@@ -211,7 +211,76 @@ async function funName() {
 
 
 
- 
+#####  展开运算符
+
+`...`
+
+* 传递数组参数
+
+  ```
+  function test(a,b,c) {}
+  var args = [0,1,2]
+  test(...args)
+  ```
+
+* 合并数组
+
+  ```
+  var arr1=['a','b','c']
+  var arr2=[...arr1,'d','e'] //['a','b','c','d','e']
+  ```
+
+* 方便的用在push方法里
+
+  ```
+  var arr1=['a','b','c']
+  var arr2=['d','e']
+  arr1.push(...arr2) //['a','b','c','d','e']
+  ```
+
+* 解构赋值里面用
+
+  ```
+  let [arr1,arr2,...arr3] = [1, 2, 3, 4, 5];
+  console.log(arr1) // 1
+  console.log(arr2) // 2
+  console.log(arr3) // 3,4,5
+  ```
+
+* 把一个类数组变成一个真数组
+
+  ```
+  var list=document.getElementsByTagName('div')
+  var arr=[..list]
+  ```
+
+
+
+##### ES7草案中的拓展运算符
+
+* 操作对象
+
+  ```
+  let {x,y,...z} = {x:1,y:2,a:3,b:4}
+  console.log(x) // 1
+  console.log(y) // 2
+  console.log(z) // {a:3,b:4}
+  ```
+
+* 合并对象
+
+  ```
+  let m={a:3,b:4}
+  let n={x:1,y:2,...m}
+  console.log(n) // {x:1,y:2,a:3,b:4}
+  
+  let a = {x:1,y:2}
+  let b = {z:3}
+  let c = {...a,...b}
+  console.log(c) // {x:1,y:2,z:3}
+  ```
+
+  
 
  
 
